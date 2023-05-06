@@ -5,7 +5,7 @@ df = pd.read_csv('./data/data.csv')
 
 app = Flask(__name__)
 
-@app.route('/', methods='get')
+@app.route('/', methods=["GET"])
 def home():
     return 'this is an API service for MN ICD code details'
 
