@@ -1,7 +1,7 @@
 from flask import Flask, request 
 import pandas as pd 
 
-df = pd.read_csv('./data/data.csv')
+df = pd.read_csv('./data/diagnoses2019.csv')
 
 app = Flask(__name__)
 
@@ -35,8 +35,6 @@ def icdcode2(value, value2):
     
 
 if __name__ == '__main__':
-    app.run(debug=True) 
-
-
+    app.run(debug=True)
 
     
