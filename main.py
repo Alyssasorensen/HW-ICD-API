@@ -1,7 +1,7 @@
 from flask import Flask, request 
 import pandas as pd 
 
-df = pd.read_csv('./data/diagnoses2019.csv')
+df = pd.read_csv('./data/services2019 (3).csv')
 
 app = Flask(__name__)
 
@@ -18,7 +18,7 @@ def preview():
 @app.route('/icd/<value>', methods=['GET'])
 def icdcode(value):
     print('value: ', value)
-    filtered = df[df['principal_diagnosis_code'] == value]
+    filtered = df[df['svc_code'] == value]
     if len(filtered) <= 0:
         return 'There is nothing here'
     else: 
@@ -26,7 +26,7 @@ def icdcode(value):
 
 @app.route('/icd/<value>/sex/<value2>')
 def icdcode2(value, value2):
-    filtered = df[df['principal_diagnosis_code'] == value]
+    filtered = df[df['svc_code'] == value]
     filtered2 = filtered[filtered['sex'] == value2]
     if len(filtered2) <= 0:
         return 'There is nothing here'
